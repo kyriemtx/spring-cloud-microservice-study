@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: microservice-consumer-movie-ribbon
+  #datasource:
+    #driver-class-name: com.mysql.jdbc.Driver  //mysql数据库驱动
+    #url: jdbc:mysql://127.0.0.1:3306/microservice   //数据库名
+    #username: root
+    #password: root
+
+
+
+#mybatis的配置
+#mybatis:
+  #mapper-locations: classpath:mapper/*.xml
+  #type-aliases-package: com.kyrie.consumer_ribbon.entity
+
+eureka:
+  client:
+    serviceUrl:
+      defultZone: http://discovery:8761/eureka/    #指定注册中心地址
+
+  instance:
+    hostname: discovery
+

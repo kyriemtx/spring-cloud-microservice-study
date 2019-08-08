@@ -1,0 +1,47 @@
+server:
+  port: 8001
+
+# 使用druid连接池
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+# 数据库的URL、帐号、密码、驱动
+    url: jdbc:mysql://127.0.0.1:3306/microservice?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+#连接池的配置信息
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+
+  application:
+      name: microservice-provider-user
+
+
+#mybatis的配置
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.kyrie.provider.entity
+
+
+
+eureka:
+  client:
+    serviceUrl:
+      defultZone: http://discovery:8761/eureka/    #指定注册中心地址
+
+  instance:
+    prefreIpAddress: true
+

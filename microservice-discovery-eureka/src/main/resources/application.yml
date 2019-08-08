@@ -1,0 +1,14 @@
+#指定该erueka实例的端口号
+server:
+  port: 8761
+
+
+eureka:
+  instance:
+    hostname: discovery     #指定该eureka的主机名
+  client:
+    registerWithEureka: false   #禁止把自己作为服务注册到注册中心
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
