@@ -1,0 +1,30 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: microservice-consumer-movie-feign
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+ribbon:
+  eureka:
+    enable: true       //默认为true，如果用false的话，ribbon则不会从eureka获取服务列表，而是从静态配置获取服务列表
+  connectTimeout: 5000 #请求连接的超时时间
+  readtimeout: 8000 #请求处理的超时时间
+
+
+### Hystrix 配置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            # 熔断器超时时间，默认：1000/毫秒
+            timeoutInMilliseconds: 5000
