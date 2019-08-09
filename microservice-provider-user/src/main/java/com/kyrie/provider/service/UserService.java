@@ -31,7 +31,7 @@ public class UserService {
     }
 
     /**
-     * 查询全部用户
+     * 查询全部用户列表
      * @return
      */
     public List<User> getUserList(){
