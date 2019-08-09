@@ -33,4 +33,13 @@ public class UserController {
     public String test(){
         return userService.test();
     }
+
+    /**
+     * 获取用户信息列表
+     * @return
+     */
+    @GetMapping("/list")
+    public List<User> getUserList(){
+        return userService.getUserList();
+    }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -27,11 +28,25 @@ public class RibbonHystrixService {
      */
     @HystrixCommand(fallbackMethod = "fallback")
     public User selectByPrimaryKey(Long id){
-
-        User user = restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/one/"+id,User.class);
+        User user = restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/one/?id="+id,User.class);
         return user;
 
     }
+
+    public String test(){
+        return  restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/test",String.class);
+    }
+
+    /**
+     * 获取用户信息列表
+     * @return
+     */
+
+    public List<User> getUserList(){
+        return restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/list",List.class);
+    }
+
+
     public User fallback(Long id){
         User user = new User();
         user.setAge(88);

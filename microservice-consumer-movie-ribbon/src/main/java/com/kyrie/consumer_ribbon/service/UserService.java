@@ -26,12 +26,20 @@ public class UserService {
      */
     public User selectByPrimaryKey(Long id){
 
-        User user = restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/one/"+id,User.class);
+        User user = restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/one/?id="+id,User.class);
         return user;
 
     }
 
     public String test(){
         return  restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/test",String.class);
+    }
+
+    /**
+     * 获取用户信息
+     * @return
+     */
+    public List<User> getUserList(){
+        return restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/list",List.class);
     }
 }
