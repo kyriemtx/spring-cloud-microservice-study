@@ -1,0 +1,14 @@
+server:
+  port: 8085
+
+
+spring:
+  application:
+    name: microservice-config-server
+  cloud:
+    server:
+      git:
+        url: https://github.com/kyriemtx/spring-cloud-microservice-study
+        search-paths: config-repo   # 配置仓库地址
+        username: kyriemtx
+        password: nan951208
