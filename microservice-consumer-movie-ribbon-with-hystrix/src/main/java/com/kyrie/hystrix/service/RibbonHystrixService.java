@@ -46,6 +46,10 @@ public class RibbonHystrixService {
         return restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/list",List.class);
     }
 
+    public String feign(String test){
+        return  restTemplate.getForObject("http://MICROSERVICE-PROVIDER-USER/feign?test="+test,String.class);
+
+    }
 
     public User fallback(Long id){
         User user = new User();

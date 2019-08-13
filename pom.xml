@@ -24,7 +24,10 @@
         <module>microservice-consumer-movie-feign</module>
 		<module>microservice-hystrix-dashboard</module>
         <module>microservice-config-server</module>
-    </modules>
+        <module>microservice-zuul</module>
+		<module>microservice-config-client</module>
+
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>

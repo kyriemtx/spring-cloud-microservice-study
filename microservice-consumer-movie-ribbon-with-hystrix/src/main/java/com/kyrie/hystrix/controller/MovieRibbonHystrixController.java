@@ -41,5 +41,10 @@ public class MovieRibbonHystrixController {
         return ribbonHystrixService.getUserList();
     }
 
+    @GetMapping("/feign")
+    public String feign(String test){
+        return ribbonHystrixService.test();
+
+    }
 
 }

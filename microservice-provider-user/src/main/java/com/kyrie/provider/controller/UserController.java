@@ -39,4 +39,9 @@ public class UserController {
          return  "test";
 
     }
+
+    @GetMapping("/feign")
+    public String feign(String test){
+        return userService.feign(test);
+    }
 }

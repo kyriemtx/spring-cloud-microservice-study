@@ -5,6 +5,7 @@ import com.kyrie.provider.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.util.List;
 
 
@@ -36,5 +37,14 @@ public class UserService {
      */
     public List<User> getUserList(){
         return  userMapper.getUserList();
+    }
+
+    /**
+     * 供feign调用的测试方法
+     * @param test
+     * @return
+     */
+    public String feign(String test){
+        return  "Hi, feign" + test;
     }
 }
